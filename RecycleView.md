@@ -6,10 +6,10 @@
 ```xml
 <android.support.v7.app.AlertController.RecycleListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/recycle_view">
+        android:layout_height="wrap_content"
     </android.support.v7.app.AlertController.RecycleListView>
 ```
+这里的宽和高必须写成match_paper如果写wrap_content，写出来的RecycleView就划不动
 3.创建一个你要展示的类
 ```java
 public class Person{
