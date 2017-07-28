@@ -100,3 +100,11 @@ android:paddingTop="15dp"
 </LinearLayout>
 ```
 这里面的与recyclerview在同一层的LinearLayout的height属性必须时wrap_cotent  最好不要设置成比重，不然当软键盘弹出来的时候就会把EditView挡住
+
+3.ellipsize
+设定当文本内容超过控件的宽度时，文本的缩略方式
+```xml
+android:ellipsize="end"
+```
+这里是在尾部进行缩略，
+还有start，在首部缩略。middle在中间缩略。
