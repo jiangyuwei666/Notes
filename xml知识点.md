@@ -1,4 +1,11 @@
-1.weight比重的使用
+1.padding
+表示给控件的周围加上补白
+```xml
+android:paddingTop="15dp"
+```
+这个表示给控件上面留15个单位的空白，类似的还有left right bottom
+
+2.weight比重的使用
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  
     xmlns:tools="http://schemas.android.com/tools"  
