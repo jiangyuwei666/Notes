@@ -1,4 +1,4 @@
-用来把别的布局加到主要的布局之中，比如像一些Title
+用来把别的布局加到主要的布局之中，比如像一些Title和RecyclerView
 
 1.首先获取LayoutInflater实例
 ```java
