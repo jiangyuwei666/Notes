@@ -5,7 +5,11 @@ android:paddingTop="15dp"
 ```
 这个表示给控件上面留15个单位的空白，类似的还有left right bottom
 
-2.weight比重的使用
+2.margin
+和padding相似，也是再控件的周围搞点空隙，区别在于padding是以自己为单位，在自己控件的所属范围中留出来的空隙为自己控件中的内容所使用，而magin则是再父控件的周围流出一点，是给本控件留的位置
+和padding 类似也是有Top Left Right
+
+3.weight比重的使用
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  
     xmlns:tools="http://schemas.android.com/tools"  
@@ -101,7 +105,7 @@ android:paddingTop="15dp"
 ```
 这里面的与recyclerview在同一层的LinearLayout的height属性必须时wrap_cotent  最好不要设置成比重，不然当软键盘弹出来的时候就会把EditView挡住
 
-3.ellipsize
+4.ellipsize
 设定当文本内容超过控件的宽度时，文本的缩略方式
 ```xml
 android:ellipsize="end"
