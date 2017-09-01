@@ -114,13 +114,16 @@ public class MainActivity extends AppCompatActivity {
 思考，因为是要给每一项都设置事件监听器，也只有再适配器中能够操作，所以再Adapter类中的ViewHolder内部类的onCreateViewHolder方法添加以下代码
 ```java
 final ViewHolder holder = new ViewHoler ( View ) ; 
-holder.fruitView.setOnClickListener ( new View.OnClickListener ) {
+holder.personView.setOnClickListener ( new View.OnClickListener ) {
    @Override
    public void onClick ( View v ) {
    int position = holder.getAdapterPosition( ) ;
    Person person = mPersonList.get( position ) ;//获得相应的那一个person的实例
    Toast.makeText ( v.getContext , "you click " + person.getName() ; Toast.LENGTH_SHORT ).show() ;
-   ...
-   }
+   }  
+}
+//这里还可以再写一个方法用于点击图片和文字有不同的反馈信息
+holder.personImage.setOnClickListener ( new View.OnClickListener ) {
+...
 }
 ```
