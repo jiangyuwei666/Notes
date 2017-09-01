@@ -10,6 +10,7 @@
     </android.support.v7.app.AlertController.RecycleListView>
 ```
 这里的宽和高必须写成match_paper如果写wrap_content，写出来的RecycleView就划不动
+
 3.创建一个你要展示的类
 ```java
 public class Person{
@@ -110,7 +111,32 @@ public class MainActivity extends AppCompatActivity {
     }//这个方法用于重复名字以达到瀑布流的效果
 }
 ```
-6.再RecyclerView中添加点击事件
+6.修改RecyclerView控件的XML中的代码
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    >
+
+    <ImageView
+        android:id="@+id/person_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/person_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="10dp" />
+```
+这里使用的是瀑布流的布局，所以要将orientation设置成vertical
+
+7.再RecyclerView中添加点击事件
 思考，因为是要给每一项都设置事件监听器，也只有再适配器中能够操作，所以再Adapter类中的ViewHolder内部类的onCreateViewHolder方法添加以下代码
 ```java
 final ViewHolder holder = new ViewHoler ( View ) ; 
