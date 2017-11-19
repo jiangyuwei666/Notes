@@ -1,0 +1,28 @@
+# Java笔记
+----
+### 位运算
+* ^运算
+```java
+//把数据转换成二进制，相同的取0，不同的取1
+int i = 1 ;
+int j = 2 ;
+j = i ^ i ;
+//i的二进制 0001
+//j的二进制 0010
+//相同的取0 不同的取1
+//j = 0011 所以 j = 3
+```
+* << 和 >> 运算符
+
+### String 与 Double 类型的相互转换
+* String 转 Double
+```java
+//使用Doublel类中的方法
+double d = 120.23123123;
+String s = Double.toString(d) ;
+```
+* Double 转 String
+```java
+//同样的使用Double类
+d = Double.valueOf(s).doubleValue();
+```
