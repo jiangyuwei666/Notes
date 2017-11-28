@@ -26,3 +26,21 @@ String s = Double.toString(d) ;
 //同样的使用Double类
 d = Double.valueOf(s).doubleValue();
 ```
+
+### Objict.equals()
+```java
+this == obj //比较两个对象的地址
+```
+### 可变参数
+当传入的参数不确定个数时，用...表示可变参数
+</br>1.只能放在参数列表的最后
+</br>2.三个点放在类名和对象名中间
+</br>3.在调用这个方法的时候编译器会自己创建一个数组，方法以数组的形式处理这些可变参数
+</br>4.同类型
+```java
+public void print ( String ... arrgs ) {
+    for ( String s : arrgs ){
+        System.out.print( s ) ;
+    }
+}
+```
