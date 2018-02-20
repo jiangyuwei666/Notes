@@ -19,6 +19,12 @@
 ##### Response对象
 服务器返回的的对象
 </br>Response对象的一些属性
-1.先用r.status_code()看是不是200
-2.用r.encoding或者r.apparent_ecoding
-header中如果不存在charset字段,打印r.encoding,会发现编码为'ISO-8859-1',而r.apparent_ecoding会根据网页的内容分析出编码方式。比如说百度
+* status_code()方法
+</br>查看当前的状态码，200为正常可以访问
+* encoding和apparent_encoding编码方式
+</br>header中如果不存在charset字段,打印r.encoding,会发现编码为'ISO-8859-1',而r.apparent_ecoding会根据网页的内容分析出编码方式。比如百度的首页
+ 1. 先用r.status_code()看是不是200
+ 2. 用r.encoding或者r.apparent_encoding查看编码
+</br>比如说百度
+
+![](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/Response%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7.jpg)
