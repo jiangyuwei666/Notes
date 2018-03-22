@@ -42,3 +42,4 @@ XML 与 HTML 的主要差异
 HTML中的标签是固定的，比如<li>  <a>等
 XML中的标签可以自己定义
 
+Json

@@ -41,7 +41,11 @@ print ( r.url ) #  一打印得到  https://www.baidu.com/?key2=value2&key1=valu
 ```python
 r = requests.get ( url , params ).json()
 ```
-这在解析动态异步加载的界面就很方便，使用r = requests.get ( url , params ).json().get()就可以直接查找需要获得的数据
+这在解析动态异步加载的界面就很方便，使用
+```pyhton
+r = requests.get ( url , params ).json().get()
+```
+就可以直接查找需要获得的数据
 
 (4)伪装浏览器
 
@@ -53,8 +57,7 @@ headers = {'user-agent': 'my-app/0.0.1'} #这只是其中一种
 r = requests.get( url , headers = headers ) 
 ```
 这样就可以了
-
-2.使用Xpath抓取你想要的东西
+</br>2.使用Xpath抓取你想要的东西
 
 xpath其实就是通过路径找到你想要的东西，比如说你家住在胜利路牛逼小区a幢1单元1楼1号，通过这个我就能找到你，放在Xpath上，它就是通过选取XML文档的节点来一层一层的找到你想要的内容。
 
@@ -96,74 +99,5 @@ list = s.xpath('//div//a/@href')
 ```
 平时经常用到的就是这些了
 
-**注意：当获取的是标签的属性时就不加/text()，在获取标签的内容时就要加上text()
+**注意：当获取的是标签的属性时就不加/text()，在获取标签的内容时就要加上text()**
 
-3.BeautifulSoup的基本用法
-
-其实有一种也就差不多了，有时候因为xpath功力不够，有的东西抓不到，不妨就试试用另外一种解析方式，也就是BeautifulSoup,这是bs4中的一个模块。
-
-(1)使用是先要导入BeautifulSoup这个模块 
-```python
-from bs4 import BeautifulSoup
-```
-(2)BeautifulSoup是可以和requests模块一起使用的
-```python
-url = "https://www.baidu.com/"
-r = requests.get( url )
-r.encoding = 'utf-8'
-bs = BeautifulSoup( r.text , "html.parser" ) #后边的参数是解析器，有多种，html.parser是python自带的
-```
-我们可以打印一下
-```python
-print ( bs ) #这个打印出来是网页源码
-print ( type ( bs ) ) #这个打印是出来是<class 'bs4.BeautifulSoup'> 是bs4里定义的类 
-```
-(3)获取标签
-
-比如获取P标签直接就是
-```python
-print ( bs.p ) #这里打印出来就是整个p标签，包括其标签头和标签内容，以及其中的属性
-print ( bs.p.string ) #获取标签内容
-print ( bs.p.name )#获取标签名称 就是p
-print ( bs.p.parent.name ) #获取父节点的名称
-```
-但是这些方法都只能得到从上到下的第一个节点，如果想要获取到整个网站上的某一类就要用到下面的方法
-
-(4)find和find_all 方法
-
-find方法其实在爬虫上面没什么卵用，主要是find_all方法的用法
-
-比如我们要获取一个网址上所有的a标签
-```python
-List = bs.find_all ( 'a' ) 
-```
-这样我们就得到了所有a标签
-
-但是有的a标签并不是我们想要的，比如我们只想要class 属性为abc的a标签
-```python
-List = bs.find_all ( 'a' , class_ = 'abc') #这里注意，因为class是Python的关键字，所以为了避免电脑瓜皮，要加个_
-```
-再进一步，如果我们要的是a标签中某个属性的值 ,比如href属性
-```python
-List2 = []
-for i in List :
-List2.append( i.get ( 'href' ) ) 
-```
-这样就将所需要的东西放到了List2 中
-
-通过循环遍历所有标签:分为上序遍历,下序遍历,平行便利
-</br>先煮汤
-```python
-r = requets.get( url )
-soup = beautifulsoup( r.text , "html.parese" )
-```
-* 上序遍历(假设a标签是底层标签)
-```python
-for parent in soup.a.parent:
-    print ( parent )
-```
-* 下序遍历(html为顶层标签)
-```python
-for children in soup.html.children
-    print ( children )
-```
