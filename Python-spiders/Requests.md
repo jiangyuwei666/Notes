@@ -102,13 +102,15 @@
     ```python
     <Response [200]>
     ```
+    这个r是什么类型呢？
     ```python
-    print ( type ( r ) )# <class 'requests.models.Response'>  他是这个类型
+    print ( type ( r ) ) 
     ```
     打印发现是requests里封装好的类
     ```python
     <class 'requests.models.Response'>
     ```
+    打印一下
     ```python
     print ( r.text ) #这里打印的是网页源码
     print ( type ( r.text ) ) #字符串类型
