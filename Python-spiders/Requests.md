@@ -52,34 +52,51 @@
 ### Response对象
 服务器返回的的对象，是Requests库里封装好的类
 </br>Response对象的一些属性
+* r.headers
+    </br>返回头部信息
+    ```python
+    >>> url = 'http://www.baidu.com'
+    >>> r = requests.get(url)
+    >>> r.headers
+    {'Server': 'bfe/1.0.8.18', 'Date': 'Tue, 27 Mar 2018 03:21:53 GMT', 'Content-Type': 'text/html', 'Last-Modified': 'Mon, 23 Jan 2017 13:27:36 GMT', 'Transfer-Encoding': 'chunked', 'Connection': 'Keep-Alive', 'Cache-Control': 'private, no-cache, no-store, proxy-revalidate, no-transform', 'Pragma': 'no-cache', 'Set-Cookie': 'BDORZ=27315; max-age=86400; domain=.baidu.com; path=/', 'Content-Encoding': 'gzip'}
+    ```
+    发现是一个字典，就通过键查看值
+    ```python
+    >>> r.headers['Date']
+    'Tue, 27 Mar 2018 03:21:53 GMT'
+    ```
 * status_code()方法
     </br>查看当前的状态码，200为正常可以访问
+    ```python
+    >>> r.status_code
+    200
+    ```
 * encoding和apparent_encoding编码方式
     </br>header中如果不存在charset字段,打印r.encoding,会发现编码为'ISO-8859-1',而r.apparent_ecoding会根据网页的内容分析出编码方式。比如百度的首页
-1. 先用r.status_code()看是不是200
-2. 用r.encoding或者r.apparent_encoding查看编码
-3. 如果是ISO-8859-1的话可以直接使用
-    ```python
-     r.encoding = r.apparent_encoding
-    ```
-    </br>比如说百度
-    首先我们用requests.get方法获取response对象
-    ```python
-    import requests
-    url = "http://www.baidu.com"
-    r = requests.get( url )
-    ```
-    输出一下r.text，结果如下
+    1. 先用r.status_code()看是不是200
+    2. 用r.encoding或者r.apparent_encoding查看编码
+    3. 如果是ISO-8859-1的话可以直接使用
+        ```python
+        r.encoding = r.apparent_encoding
+        ```
+        </br>比如说百度
+        首先我们用requests.get方法获取response对象
+        ```python
+        import requests
+        url = "http://www.baidu.com"
+        r = requests.get( url )
+        ```
+        输出一下r.text，结果如下
 
-    ![1](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/%E7%99%BE%E5%BA%A6%E7%BC%96%E7%A0%811.png)
+        ![1](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/%E7%99%BE%E5%BA%A6%E7%BC%96%E7%A0%811.png)
 
-    打印一下编码和apparent_encoding
+        打印一下编码和apparent_encoding
 
-    ![2](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/%E7%99%BE%E5%BA%A6%E7%BC%96%E7%A0%812.png)
+        ![2](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/%E7%99%BE%E5%BA%A6%E7%BC%96%E7%A0%812.png)
 
-    改写结果
+        改写结果
 
-    ![3](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/%E7%99%BE%E5%BA%A6%E7%BC%96%E7%A0%813.png)
+        ![3](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/%E7%99%BE%E5%BA%A6%E7%BC%96%E7%A0%813.png)
 
 ## 使用
 1. 首先我们要导入这个模块
