@@ -39,3 +39,13 @@
     urlretrieve(url, filename=None, reporthook=None, data=None)
         Retrieve a URL into a temporary location on disk.
     ```
+    第一个参数url，资源标识符，就是需要下载的资源的地址(路径)
+    </br>第二个参数filename是本地目录的存放路径以及文件名
+    比如我们要下一张图片
+    ```python
+    name = r'蛇皮'
+    path = r'F:\\download'
+    filename = path + name + '.jpg'
+    urllib.request.urlretrieve( url , filename )
+    # url是图片链接地址
+    ```
