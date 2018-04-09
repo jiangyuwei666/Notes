@@ -25,7 +25,7 @@ plt.show()
 ```
 效果如图
 
-![matplotlib饼]()
+![matplotlib饼](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/matplotlib%E9%A5%BC.png)
 
 这里有个小坑，就是保存图片必须放在前面，不然就会保存一张空白的图片
 </br>原因是因为在```plt.show()```调用了之后，就已经创建了新的，可以类比流，你输出来后流里面就没有东西了。所以```plt.savefig()```要放在前面。
@@ -37,4 +37,6 @@ plt.show()
 * colors
     </br>颜色可选范围
 
-    ![matplotlib饼颜色]()
+    ![matplotlib饼颜色](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/matplotlib%E9%A5%BC%E9%A2%9C%E8%89%B2.png)
+* autopct 
+    </br>```'%1.1f%%'```第一个%表示输出的格式，后面两个%的第一个表示转义，使可以打出第二个%
