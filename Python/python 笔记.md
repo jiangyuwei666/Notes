@@ -36,10 +36,3 @@ class man(Human):
              Human.__init__(self,weight,height,country)
              slef._dick = dick
 ```
-
-#——————————————————————————————
-
-·字符串前面加r
-
-字符串前加一个r的作用是为了让字符串中的一些转义字符如:  \r , \n,\t,\x之类的字符进行正常使用，不让他转义
-
