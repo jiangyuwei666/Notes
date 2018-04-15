@@ -4,9 +4,10 @@ beautifulsoup解析HTML或者XML文档,传入网址url,得到一个标签树,再
 ## 介绍
 * BeautifulSoup库的解析器
 
-![bs解析器]()
+![bs解析器](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/bs%E8%A7%A3%E6%9E%90%E5%99%A8.png)
 
 * BeautifulSoup的一些属性
+
 ![bs的属性](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/Beautiful%20Soup%E7%9A%84%E5%B1%9E%E6%80%A7.png)
 
 ## BeautifulSoup的基本用法

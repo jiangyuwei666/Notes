@@ -1,5 +1,5 @@
 # range
-range函数，嵌套循环非常好用的一个函数，python2中返回的是一个列表。python3中返回一个range类对象,实际上是一个整数序列。
+range函数，嵌套循环非常好用的一个函数，python2中返回的是一个列表。python3中返回一个range类对象,实际上是一个整数序列，可迭代。
 </br>可以使用
 ```python
 list(range())
@@ -20,7 +20,7 @@ range( start , stop , step )
 * stop
     </br>结束的整数，不包括本身，使用range()函数的时候必须写
 * step
-    </br>步长，默认为1，比如
+    </br>步长，默认为1，比
     ```python
     >>> list(range(5))
     [0, 1, 2, 3, 4]

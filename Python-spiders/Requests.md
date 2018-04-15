@@ -133,7 +133,7 @@
     print ( type ( r.text ) ) #字符串类型
     ```
     到这里大概了解了requests.get()方法的大概用法
-2. request.get()的第二个参数，params
+2. requests.get()的第二个参数，params
     ```python
     params = {} #这里的参数必须是一个字典
     r = requests.get ( url , params )
