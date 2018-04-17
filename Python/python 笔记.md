@@ -4,7 +4,7 @@
 ```python
 class Human:
     # weight = 60    # 公有属性，跟java不同的是，属性在__init__方法中声明即可
-    # __country = 'China'     # 私有属性,__也是属性名的一部分
+    # __country = 'China'    # 私有属性,__也是属性名的一部分
 
     def __init__(self, weight, height, country):
         self.__weihgt = weight  # 类的成员变量在构造函数中定义
@@ -103,7 +103,19 @@ print_( a = 123 , b = 'asd' , c = [1 , 2 , 3])
 ```python
 {'a': 123, 'b': 'asd', 'c': [1, 2, 3]}
 ```
+## 函数返回值
+python中一个方法允许返回多个值
+```python
+def aaa():
+    return 1,2,3
 
+a,b,c = aaa()
+print( a,b,c )
+```
+输出得到
+```
+1 2 3
+```
 ## 继承
 ```python
 class man(Human):

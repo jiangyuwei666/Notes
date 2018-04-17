@@ -85,7 +85,7 @@ for sibling in soup.a.next_siblings:
 ```
 ```python
 #遍历后序节点
-for sibling in soup.aprevious_sublings:
+for sibling in soup.a.previous_sublings:
     print( sibling )
 ```
 
