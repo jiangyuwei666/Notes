@@ -5,7 +5,9 @@
 </br>服务端一般有五个步骤:
 1. 创建socket对象，并绑定到本地IP与端口
     </br>本地的IP可以通过cmd查看输入```ipconfig/all```
-    ![查看本地IP地址]()
+
+    ![查看本地IP地址](https://github.com/jiangyuwei666/Notes/blob/master/pictrue/%E6%9F%A5%E7%9C%8Bip%E5%9C%B0%E5%9D%80.png)
+
 2. 设置监听
 3. 进入循环，一直接受客户端的连接
 4. 接受数据，并发送数据（这里开了新的线程调用方法）
@@ -57,11 +59,12 @@ s.close()#关闭socket
 </br>服务端的运行结果
 ```
 waiting for connection...
-Accept new connection from 10.0.117.140:61866...
+Accept new connection from **.0.***.***:61866...
 -->>hello,im client!
-Connection from 10.0.117.140:61866 closed
+Connection from **.0.***.***:61866 closed
 ```
-客户端的运行结果
+IP就不放出来了
+</br>客户端的运行结果
 ```
 -->>hello,im server
 -->>loop_msg:hello,im client!
@@ -72,6 +75,18 @@ Connection from 10.0.117.140:61866 closed
 3. 服务端检查到有客户端连接进来了，执行了循环里的逻辑：开辟了一个新的线程来执行服务端里写好的```dealClient```方法
     1. 先输出了获取的连接的地址
     2. 发送了一则消息，可以看到是用的字节串
-    2. 客户端接受消息，再编码打印出来
-    3. 在用循环持续交互接受和发送消息，如果收到的信息是exit就结束交互。
+    2. 客户端接受消息，再编码打印出来 客户端发送消息(im client),服务端接受并输出，再发送消息(loop),客户端再接受并打印。最后发送exit。在用循环持续交互接受和发送消息，如果收到的信息是exit就结束交互。
     4. 在方法的最后关闭连接
+4. 客户端关闭连接
+5. 此时客户端已经执行完毕，但是服务端依旧在循环。
+</br>可以在客户端里也添加循环实现实时交互,把客户端的```s.send(b'exit')```改成如下循环
+```python
+while(True):
+    msg = input('客户端发送的信息：')
+    if 'exit' == msg :
+        s.send(b'exit')
+        break
+    s.send( msg.encode('utf-8') )
+```
+就可以持续的交互，并且想退出时就直接退出
+</br>再重新运行客户端，又会连接上服务端。

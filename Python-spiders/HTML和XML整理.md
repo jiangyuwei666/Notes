@@ -1,18 +1,45 @@
+# 网页前端基础
+为了更好的与网页打交道，需要了解好前端的知识。
+## HTML
+HTML不是编程语言，而是标记语言，是一种表示网页信息的符号标记语言。HTML是哟个标记来描述网页。浏览器读取HTML文档并且以网页显示出来。
+
+HTML 档 = 网页
+·HTML文档描述网页
+·HTML文档包含 HTML 标签和纯文本
+·HTML文档也被称为网页
 
 
+## CSS
+CSS是**指层叠样式表**，用来定义如何显示HTML元素，一般和HTML配合使用。
+大概是这样用的
+```html
+<head>
+<title> 我是脑壳 </title>
+<meta charset = 'GBK'/>
+<style>
+h1
+{
+	background-color:#6495ed;
+	color:red;/*字体颜色*/
+}
+body
+{
+	background-color:red;
+	color:bule;
+}
+</style>
+<h1>ssssssssssssssssssbbbbbbbbbbbbbbbbb</h1>
+</head>
+<body>
+哈哈
+</body>
+```
+![CSS效果图]()
 
-HTML 文档 = 网页
-·HTML 文档描述网页
-·HTML 文档包含 HTML 标签和纯文本
-·HTML 文档也被称为网页
-
-<h> 是标题   <p> 段落    <a>链接 在herf属性中指定的链接地址    <img>图像
-图像标签<img>没有闭标签
-
-
-
-
-
+## JavaScript
+JavaScript是轻量级脚本语言，和python一样的，只是是由浏览器进行解释执行
+</br>将JavaScript程序插入HTML页面中，有两种做法，直接插入或者外部调用。
+1. 通过```<script></script>```标签就可以直接添加再任何地方。
 
 
 
