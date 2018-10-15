@@ -79,4 +79,119 @@ Xpath所在的模块是lxml中etree模块，安装和requests库一样，也有�
         平时经常用到的就是这些了
 
         **注意：当获取的是标签的属性时就不加/text()，在获取标签的内容时就要加上text()**
+3. 属性多值匹配
 
+    在我们获取标签文本内容时，有时候会出现一个标签下的某一属性有多个值而无法获取该标签下的内容
+
+    比如说
+    ```python
+    from lxml import etree
+
+    text = '''
+    <li class="li1 li2">li_text</li>
+    '''
+    s = etree.HTML(text)
+    print(s.xpath('//li[@class="li1"]/text()'))
+    ```
+    输出只有一个
+    ```
+    []
+    ```
+    这个时候要使用```contains()```函数
+    ```python
+    from lxml import etree
+
+    text = '''
+    <li class="li1 li2">li_text</li>
+    '''
+    s = etree.HTML(text)
+    print(s.xpath('//li[contains(@class , "li1")]/text()'))
+    ```
+    这样就可以正确的获取内容，```contains()```里写属性的任何一个值都可以
+    ```
+    ['li_text']
+    ```
+
+    emmmm...突然发现直接这样写也行。
+    ```python
+    from lxml import etree
+
+    text = '''
+    <li class="li1 li2">li_text</li>
+    '''
+    s = etree.HTML(text)
+    print(s.xpath('//li[@class="li1 li2"]/text()'))
+    ```
+    直接将所有的属性值全部写进去，当然时少的时候
+4. 多属性匹配
+
+    其实多属性的时候只需要写齐一个属性值就可以了，但是**没有筛选效果**，所以还是得使用```and```把他们连接起来，避免数据的不必要抓取
+    
+    比如下面这个例子
+    ```python
+    from lxml import etree
+
+    text = '''
+    <li class="li1 li2" href="h1">li_text1</li>
+    <li class="li1 li2" href="h2">li_text2</li>
+    '''
+    s = etree.HTML(text)
+    print(s.xpath('//li[contains(@class,"li1")]/text()'))
+    print('***')
+    print(s.xpath('//li[contains(@class,"li1") and @href="h2"]/text()'))
+    ```
+    结果如下就比较明显了
+    ```
+    ['li_text1', 'li_text2']
+    ***
+    ['li_text2']
+    ```
+
+    在xpath的表达式中不仅仅可以用```and```，很多运算符号都可以在xpath表达式中使用 
+
+5. xpath节点轴
+    
+    在食用一般的路径表达式时，会遇到一些结构不太清晰分明的网站就不太好提取这个时候使用```节点轴```。通过节点轴选取，就是通过节点的位置和上下关系来定位一系列节点。
+    
+    通过代码来熟悉
+    ```python
+    from lxml import etree
+
+    text = '''
+    <div>
+        <ul>
+            <li>first li item</li>
+            <li>second li item</li>
+            <p>s</p>
+            <li>fourth li item
+            <a>href</a>
+            </li>
+            <li>fifth item</li>
+        </ul>
+    </div>
+    '''
+
+    html = etree.HTML(text)
+    s = html.xpath('//li[1]')
+    print(type(s[0]))
+    index = 1
+    s1 = html.xpath('//li[1]/following::*')
+    s2 = html.xpath('//li[1]/following-sibling::*')
+    s3 = html.xpath('//li[1]/ancestor::*')
+    s4 = html.xpath('//li[1]/attribute::*')
+    s5 = html.xpath('//li[1]/child::*')
+    print(s1)
+    print(s2)
+    print(s3)
+    print(s4)
+    print(s5) 
+    ```
+    第一次调用了，```following```轴，能查找所有的兄弟节点及其子孙节点，有点像```//```后面接了两个冒号```::```冒号后面接了一个```*```表示选取所有，如果只选取所有子孙节点的a节点，xpath表达式应该```//li[1]/following::a```
+
+    第二行调用了```following-sibling```轴，表示查找的所有兄弟节点
+
+    第三行调用的是```ancestor```轴，能够查找所有的祖先节点
+
+    第四行调用的是```attribute```匹配所有的属性值
+
+    第五行调用了```child```轴，选取所有的子孙节点，其余用法都与上面所说的类似。

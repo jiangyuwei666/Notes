@@ -30,6 +30,12 @@
 </br>更新一个对象
 * DELET
 </br>删除一个对象
+* GET和POST区别
+
+    1. GET请求中的参数会直接添加在URL中，比如百度搜索python，URL等价于[www.baidu.com/s?wd=python](http://www.baidu.com/s?wd=python)
+
+        而POST直接将参数以表单的形式发给服务器，所以不存在信息泄露的的问题，比如账号密码登陆。
+    2. GET请求提交的数据最多为1024字节，而POST没有限制。
 
 ### Requests的方法
 
@@ -150,6 +156,10 @@
     https://www.baidu.com/?key2=value2&key1=value1
     ```
 3. requests自带的json解析器
+    因为使用```r.text```网页返回的是字符串```str```，有的网页返回的这个字符串的格式是比较特殊的```json```格式，我们如果要解析它就使用```requests```自带的```json解析器```。
+    
+    使用```r.json```就可以了
+
 4. headers
     有的网站，具有反爬虫机制，会自动检测出你是不是爬虫，这个时候，就可以给自己的爬虫添加一个请求头headers将自己伪装成浏览器
 
@@ -159,3 +169,122 @@
     r = requests.get( url , headers = headers ) 
     ```
     这样就可以了
+
+5. cookie
+
+    cookie是某些网站为了**辨识用户进而进行会话跟踪在本地储存**的数据
+
+    当客户端**第一次**请求服务器时，服务器会返回一个请求头中带有```Set-Cookie```字段的响应给客户端，用来标记是哪一个用户，客户端浏览器会把Cookies保存起来。当浏览器下一次再请求该网站时，浏览器会把此Cookies放到请求头一起提交给服务器，Cookies携带了**会话ID信息**，服务器检查该Cookies即可找到对应的会话是什么，然后再判断会话来以此来辨认用户状态。
+
+    在成功登录某个网站时，服务器会告诉客户端设置哪些Cookies信息，在后续访问页面时客户端会把Cookies发送给服务器，服务器再找到对应的会话加以判断。如果会话中的某些设置登录状态的变量是有效的，那就证明用户处于登录状态，此时返回登录之后才可以查看的网页内容，浏览器再进行解析便可以看到了。
+
+    反之，如果传给服务器的**Cookies是无效的，或者会话已经过期了，我们将不能继续访问页面，此时可能会收到错误的响应或者跳转到登录页面重新登录** 。
+
+    所以，Cookies和会话需要配合，一个处于客户端，一个处于服务端，二者共同协作，就实现了登录会话控制。
+
+    这就是在某个网页一次登陆过后就可以一直用很久，除非你很久没有再次登陆
+    
+    比如在用requests上知乎的首页是只是模拟浏览器是进不去的
+    ```python
+    import requests
+    headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+    }
+
+    url = 'http://www.zhihu.com'
+    r = requests.get(url,headers = headers)
+    print(r.status_code)
+    ```
+    返回的代码是```400```
+    
+    这里需要去浏览器打开开发者工具找到自己账号登陆过后的cookie，再重新改写```headers```
+    ```python
+    headers = {
+    'cookie':'d_c0="ANAmu1oG0w2PTmwzw5JylMDHG2KuxDvWBds...
+    'Host': 'www.zhihu.com',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+    }
+    ```
+    现在重新发送请求就能通过了,返回代码为```200```
+
+6. post
+    
+    ```get```是申请从网站获取东西，那么```post```就是提交表单
+
+    使用```requests.post(url , files)```
+    如
+    ```python
+    import requests
+
+    file = {
+        'file': open(r'F:\蒋昱葳\qwe.txt','rb')
+    }
+
+    url = 'http://httpbin.org/post'
+    r = requests.post(url,files = file)
+
+    print( r.text )
+    ```
+    这里打印后有这样的内容，就是我们上传的表单
+    ```
+    {
+    "args": {}, 
+    "data": "", 
+    "files": {
+        "file": ""
+    }, 
+    "form": {}, 
+    "headers": {
+        "Accept": "*/*", 
+        "Accept-Encoding": "gzip, deflate", 
+        "Connection": "close", 
+        "Content-Length": "143", 
+        "Content-Type": "multipart/form-data; boundary=5439dd85e58e4fc6866eb7a59efcaa3d", 
+        "Host": "httpbin.org", 
+        "User-Agent": "python-requests/2.18.4"
+    }, 
+    "json": null, 
+    "origin": "202.99.210.131", 
+    "url": "http://httpbin.org/post"
+    }
+    ```
+    **其中files里的东西就是我们上传的二进制。但是如果上传的内容是空的，比如一个空的txt文件这里就什么都不会显示了**
+7. 代理
+8. 超时
+
+    使用```timeout```这个参数来设置超时时间
+    ```python
+    import requests
+
+    requests.get('http://www.baidu.com',timeout = 1)
+    ```
+    ```timeout```说明设置超时时间为1s，超过1s就会抛出异常
+
+9. Cookies
+
+    通过`cookies`属性查看服务器返回的cookie值
+
+    ```python
+    import requests
+
+    url = "http://www.zhihu.com/explore"
+    r = requests.get(url)
+    print(r.cookies)
+    print("--------")
+    for key, value in r.cookies.items():
+        print(key, value)
+    ```
+
+    ```
+    <RequestsCookieJar[<Cookie _xsrf=v9ceb5eucLWhivXGU6o8y979B3VNtLWK for .zhihu.com/>, <Cookie tgw_l7_route=29b95235203ffc15742abb84032d7e75 for www.zhihu.com/>]>
+    --------
+    _xsrf v9ceb5eucLWhivXGU6o8y979B3VNtLWK
+    tgw_l7_route 29b95235203ffc15742abb84032d7e75
+    ```
+
+10. SSL证书验证
+
+    requests发送请求是，可以通过设置`verify`这个参数来控制是否检查SSL证书，默认值为`True`。
+    ```python
+    requests.get(url, verify=False)
+    ```
