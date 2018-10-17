@@ -96,7 +96,7 @@ selenium是一个功能自动化测试工具
         
         这里要特别强调一下```browser.switch_to.frame('iframeResult')```
 
-        ![菜鸟教程]()
+        ![菜鸟教程]()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 
         从这里可以看到，所要使用的两个标签全部再一个```<iframe>```标签下。一般打开网页，定位节点时，都是在最顶层的父级frame里面，如果还有子frame的话，就没法直接定位。这个时候就要用```switch_to.frame()```切换到该节点所在的frame，里面的参数就时这一层标签的```id```。还有```switch_to.parent_frame()```切换到父frame。
 
