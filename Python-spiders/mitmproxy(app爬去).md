@@ -81,3 +81,37 @@ ept', b'*/*'), (b'Accept-Encoding', b'gzip, deflate, br'), (b'Accept-Language', 
         info("cookies::::" + str(r.cookies))
         info("text:::::" + str(r.text))
     ```
+
+* 写个例子
+
+    得到app的电子数板块的爬取。
+
+    通过charles查看数据包的样子，然后编写`test.py`脚本，再用mitmdump进行抓包对接python脚本。滑动界面就能保存信息了。
+    代码如下
+    ```python
+    # -*- coding: utf-8 -*-
+    import json
+    from mitmproxy import ctx
+    from db import MongodbClient
+
+    mongodb = MongodbClient('iGet')
+
+
+    def response(flow):
+        global mongodb  # 使用全局变量
+        url = 'https://dedao.igetget.com/v3/discover/bookList'
+        if flow.request.url.startswith(url):  # 是否以上面这个字符串开头
+            text = flow.response.text
+            data = json.loads(text)
+            books = data.get('c').get('list')
+            for book in books:
+                data = {
+                    'title': book.get('operating_title'),
+                    'author': book.get('book_author'),
+                    'cover': book.get('cover'),
+                    'summary': book.get('other_share_summary'),
+                    'price': book.get('price')
+                }
+                ctx.log.warn(str(data))  # 打印日志
+                mongodb.collection.insert_one(data)
+    ```
