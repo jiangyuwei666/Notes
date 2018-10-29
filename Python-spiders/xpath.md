@@ -195,3 +195,17 @@ Xpath所在的模块是lxml中etree模块，安装和requests库一样，也有�
     第四行调用的是```attribute```匹配所有的属性值
 
     第五行调用了```child```轴，选取所有的子孙节点，其余用法都与上面所说的类似。
+## xpath在scrapy中的使用
+在spider包下的某个继承自 `spider.Spider` 的类中的`parse()`方法中使用。
+
+```python
+In [1]: response.xpath('//title/text()')
+Out[1]: [<Selector xpath='//title/text()' data='Example website'>]
+
+In [2]: response.xpath('//title/text()').extract_first()
+Out[2]: 'Example website'
+
+In [6]: response.xpath('//title/text()').extract()
+Out[6]: ['Example website']
+```
+如此所示。表达式能准确定位到节点。而`extract_first()`和`extract()`就是用来提取选取节点里的信息。
