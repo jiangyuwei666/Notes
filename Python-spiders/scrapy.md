@@ -22,4 +22,8 @@ scrapy startproject douban
 ```
 scrapy genspider douban_spider www.douban.com
 ```
-其中`scrapy genspider`是命令关键字
+其中`scrapy genspider`是命令关键字。
+`douban_spider`是创建的爬虫文件名。
+`www.douban.com`会解析成创建的允许的爬虫域名和入口url放在列表中。
+
+打开项目
