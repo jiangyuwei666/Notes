@@ -19,6 +19,8 @@ scrapy startproject douban
 
 ## 编写爬虫
 在项目目录下打开命令行输入
+
+或者直接在pycharm的终端（Terminal）里面直接输入。
 ```
 scrapy genspider douban_spider www.douban.com
 ```
@@ -26,4 +28,21 @@ scrapy genspider douban_spider www.douban.com
 `douban_spider`是创建的爬虫文件名。
 `www.douban.com`会解析成创建的允许的爬虫域名和入口url放在列表中。
 
-打开项目
+然后在spider文件夹下就会多一个`douban_spider.py`的文件，就可以在这里面编写爬虫类。
+
+爬虫类继承自`scrapy.Spider`类。
+
+父类中常用的几个属性如下：
+* name
+
+    这是爬虫的‘名字’，不能重复。调用爬虫时会用到这个属性。
+
+* allowed_domains
+
+    
+
+这个父类中常用的几个方法如下：
+* parse(self, response)
+
+    当没有制定Response的回调时，这是默认的回调方法。负责处理`response`对象，并从中提取想要的数据或者返回下一步的请求。所以这个方法必须`yield`一个请求或者`Item`。
+* 
