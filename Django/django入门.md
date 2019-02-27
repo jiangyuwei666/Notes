@@ -66,16 +66,15 @@ python manage.py startapp myApp
 
 只需在最后面添加`'myApp'`如
 ```python
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': "first_django",
-        'USER': "root",
-        'PASSWORD': "root",
-        'HOST': 'localhost',
-        'PORT': 3306,
-    }
-}
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'myApp'
+]
 ```
 ### 定义模型
 **一个数据表就对应一个模型**
@@ -183,4 +182,90 @@ from datetime import *
     比如查询某班所有学生`（班级）对象名.类名_set.all()`
     ```python
     class2.students_set.all()
+    ```
+### 启动服务器
+命令行中输入以下指令
+```
+python manage.py runserver ip:port
+```
+ip不写的话默认为本机， 端口号默认为8000
+
+这是python写的轻量级的web服务器，仅仅在测试的时候使用
+### Admin站点管理
+* 内容发布
+
+    负责添加，删除，修改内容
+* 公告访问
+1. 配置Admin应用
+
+    settings.py中的INSTALLED_APPS添加，默认是添加了的
+2. 创建管理员用户
+    
+    执行
+    ```
+    python manage.py createsuperuser
+    ```
+3. 自定义管理页面
+在admin.py文件下进行修改
+```python
+from .models import Class, Students
+
+
+# 创建时会选择添加若干个学生
+class StudentInfo(admin.TabularInline):
+    model = Students  # 关联类
+    extra = 2  # 学生个数
+
+
+@admin.register(Class)
+class ClassAdmin(admin.ModelAdmin):
+    inlines = [StudentInfo]
+    # 列表页属性
+    list_display = ['pk', 'cname', 'cdate', 'cgirl_num', 'cboy_num']  # 显示字段
+    list_filter = ['cname']  # 过滤字段
+    search_fields = ['cname']  # 搜索字段
+    list_per_page = 5  # 分页，每5条一页
+    # 添加、修改页
+    # fields = []  # 属性的先后顺序
+    fieldsets = [
+        ("num", {"fields": ['cboy_num', 'cgirl_num']}),
+        ("base", {"fields": ['cdate', 'cname', 'is_delete']})
+    ]  # 给属性分组  两个属性不能同时使用
+
+
+@admin.register(Students)
+class StudentAdmin(admin.ModelAdmin):
+    # 修改第一栏的显示
+    def gender(self):
+        if self.sgender:
+            return '男'
+        else:
+            return '女'
+
+    # 设置页面的列的名称
+    gender.short_description = '性别哟栽种'
+    list_display = ['pk', 'sname', 'sage', gender, 'scomment', 'sclass']
+
+    list_per_page = 3
+
+    # 执行动作的位置
+    actions_on_bottom = True
+    actions_on_top = False
+```
+## 视图
+在Django中，视图对web请求进行回应。视图就是一个函数，在`views.py`中定义。
+### 定义视图
+### 配置url
+* 修改project目录下的urls.py文件
+* 在myApp应用目录下创建一个urls.py文件
+## 模板
+模板就是HTML界面，可以根据视图中传递过来的数据进行填充
+### 创建模板
+创建templates目录，在目录下创建对应项目的模板目录（比如：first_django_project/templates/myApp）
+### 配置模板路径
+* `修改settings.py`文件中的`TEMPLATES`的`DIR字段`
+
+    BASE_DIR就是当前项目的路径，所以只需修改成如下
+    ```python
+    'DIRS': [os.path.join(BASE_DIR, 'templates')],
     ```
