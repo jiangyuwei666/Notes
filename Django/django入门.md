@@ -161,7 +161,7 @@ from datetime import *
     
     通过`类名.objects.all()`查看全部
 
-    通过`类名.objects.all()`选择查询
+    通过`类名.objects.get()`选择查询
 * 修改数据
 
     通过对像修改并保存
