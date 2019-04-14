@@ -1,4 +1,5 @@
-
+# 杀安德杀pdd
+算是复习的大纲
 ## 1.杂谈
 * 针对招聘信息进行查漏补缺。
 * 针对招聘信息，修改不同的简历以展现匹配度。
@@ -199,3 +200,149 @@ LRUCache替换最近使用最少的
 ### 装饰器
 接收一个函数作为参数，然后返回一个新的函数
 ### 设计模式
+设计模式一般分为三种类型
+#### 创建型
+* **工厂模式**(Factory):解决对象创建问题
+* 构造模式(Builder):控制复杂对象的创建(每一步创建一个组件)
+* 原型模式(Prototype):通过原型的克隆来创建新的实例
+* **单例模式**(Singleton):一个类只能创建同一个对象
+    ```python
+    class Singleton:
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            _instance = super().__new__(cls, *args, **kwargs)
+            cls._instance = _instance
+        return cls._instance
+    class MyClass:
+        pass
+    class SubSingleton(Singleton):
+        pass
+    c1 = MyClass()
+    c2 = MyClass()
+
+    s1 = SubSingleton()
+    s2 = SubSingleton()
+    s3 = Singleton()
+    s4 = Singleton()
+    print(c1 is c2)
+    print(s1 is s2)
+    print(s1 is s3)
+    print(s3 is s4)
+    ```
+    ```
+    False
+    True
+    False
+    True
+    ```
+* 对象池模式(Pool):预先分配同一类型的一组实例
+#### 结构型
+* **装饰器模式**(Decorator):无需使用子类就能实现对对象功能的扩展
+* **代理模式**(Proxy):把一个对象的操作代理到另外一个对象
+* **适配器模式**(Adapter):通过一个间接层适配统一接口
+* 外观模式(Facade):简化复杂对象的访问问题
+* 享元模式(Flyweight):通过对象复用池改善资源利用，比如连接池
+* **Model-View-Controller**(MVC):解耦 显示逻辑和业务逻辑
+#### 行为型
+* **迭代器模式**(Iterator):通过统一的接口迭代对象
+    * `__iter__()`和`__next__()`
+* **观察者模式**(Observer):对象发生改变时，观察者指向相应的动作
+    * 发布订阅是一种最常用的实现方式
+    * 通过回调 
+* **策略模式**(Strategy):针对不同规模输入使用不同的策略
+### 闭包
+外部使用结束了，如果内部函数还在执行，那么外部的变量就还可以用。
+## 5.操作系统
+### Linux常考命令
+* 文件/目录操作命令
+* 文件查看
+* 进程操作的命令
+* 内存操作命令
+* 网络操作命令
+* 用户/组操作命令
+
+《鸟哥的linux私房菜》
+### 进程和线程
+* 线程和进程的区别和关系
+* 线程安全(GIL锁)
+    * 线程同步
+        * 互斥量(锁)
+        * 信号量
+        * 事件
+* 进程间的通信方式
+    * pipe  管道
+    * 信号(signal)
+    * 消息队列(Message)
+    * 信号量
+    * 套接字(socket)
+* python中实现多线程
+* python中使用多进程
+### 内存管理机制
+* 分页机制
+* 分段机制
+* 虚拟内存
+    * 暂时不用的东西放在硬盘上，，要用的时候再拿出来
+    
+    导致内存抖动
+    * 频繁调度页行为
+* python垃圾回收机制原理
+
+    * 引用计数(主要)
+        
+        比如：
+        * 增加引用计数：创建对象、让一个引用指向这个对象、**函数调用**
+        * 减少引用计数：del减少对象引用计数
+        
+        无法结局循环引用，所有需要使用下面的回收机制
+    * 标记清除和分代回收(辅助)
+        
+        两个对象相互引用，引用计数无法置为0
+
+        6-3
+## 6.网络
+### 网络协议
+* 输入一个url过后经历了哪些过程
+    * 涉及到了哪些过程
+    * 包含哪些网络协议
+    * 每个协议都干了些什么
+
+    DNS查询(缓存))--TCP握手(建立连接)--HTTP请求--反向代理Nginx--uwsgi/gunicorn--web app响应--TCP挥手(断开连接)
+* TCP/UDP区别
+### HTTP协议
+HTTP是TCP应用层协议(HTTP和TCP关系)
+* HTTP请求的组成
+    * 状态行
+    * 请求头
+    * 消息主体
+* HTTP响应的组成
+    * 响应码
+    * 响应头
+    * 响应主体
+* HTTP状态码
+    * 1xx。服务器收到请求，需要请求者继续执行操作
+    * 2xx。成功
+    * 3xx。重定向（301永久，302临时重定向）
+    * 4xx。客户错误
+    * 5xx。服务器错误
+* HTTP 请求方法
+    * get post区别
+    * 幂等性 安全性
+* HTTP长连接
+* cookie和session区别
+### 网络编程
+* TCP/UDP socket编程原理(视频7-3)
+* 使用socket发送HTTP请求
+### IO多路复用
+* 五种IO模型
+    * Blocking IO  阻塞IO
+    * Nonblocking IO  非阻塞IO
+    * IO multiplexing  IO多路复用
+    * Singal Driven IO  信号IO (不常用)
+    * Asynchronous IO  异步IO (不常用)
+* 如何提升并发能力
+    * 多线程
+    * 多进程
+    * IO多路复用
+* 什么是IO多路复用？
+* 阻塞式IO
+* 
