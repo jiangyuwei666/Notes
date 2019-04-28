@@ -96,3 +96,24 @@
     ```
     定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。
     ```
+* [21.栈的压入、弹出序列](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/21.栈的压入、弹出序列.py)
+    ```
+    输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）
+    ```
+
+* [22.从上往下打印二叉树](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/22.从上往下打印二叉树.py)
+    ```
+    从上往下打印出二叉树的每个节点，同层节点从左至右打印。
+    ```二叉搜索树的后序遍历序列
+* [23.二叉搜索树的后序遍历序列](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/23.二叉搜索树的后序遍历序列.py)
+    ```
+    
+    ```
+* [24.二叉树中和为某一值的路径](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/24.二叉树中和为某一值的路径.py)
+    ```
+    输入一颗二叉树的跟节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
+    ```复杂链表的复制
+* [25.复杂链表的复制](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/25.复杂链表的复制.py)
+    ```
+    输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）
+    ```
