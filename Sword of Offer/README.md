@@ -117,3 +117,23 @@
     ```
     输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）
     ```
+* [26.二叉搜索树与双向链表](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/26.二叉搜索树与双向链表.py)
+    ```
+    输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。
+    ```
+* [27.字符串的排列](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/27.字符串的排列.py)
+    ```
+    输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+    ```
+* [28.数组中出现次数超过一半的数字](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/27.字符串的排列.py)
+    ```
+    数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
+    ```
+* [27.字符串的排列](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/27.字符串的排列.py)
+    ```
+    输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+    ```
+* [29.最小的K个数](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/29.最小的K个数.py)
+    ```
+    输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。
+    ```
