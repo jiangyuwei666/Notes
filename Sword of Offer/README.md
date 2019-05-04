@@ -162,3 +162,43 @@
     ```
     在一个字符串(0<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）.
     ```
+
+* [35.数组中的逆序对](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/35.数组中的逆序对.py)
+    ```
+    在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P
+    ```
+* [36.两个链表的第一个公共结点](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/36.两个链表的第一个公共结点.py)
+    ```
+    输入两个链表，找出它们的第一个公共结点。
+    ```
+* [37.数字在排序数组中出现的次数](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/37.数字在排序数组中出现的次数.py)
+    ```
+    统计一个数字在排序数组中出现的次数。
+    ```
+* [38.二叉树的深度](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/38.二叉树的深度.py)
+    ```
+    输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
+    ```
+* [39.数组中只出现一次的数字](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/39.数组中只出现一次的数字.py)
+    ```
+    一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。
+    ```
+
+* [40.和为S的连续正数序列](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/40.和为S的连续正数序列.py)
+    ```
+    小明很喜欢数学,有一天他在做数学作业时,要求计算出9~16的和,他马上就写出了正确答案是100。但是他并不满足于此,他在想究竟有多少种连续的正数序列的和为100(至少包括两个数)。没多久,他就得到另一组连续正数和为100的序列:18,19,20,21,22。现在把问题交给你,你能不能也很快的找出所有和为S的连续正数序列? 
+    ```
+* [41.和为S的两个数字](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/41.和为S的两个数字.py)
+    ```
+    输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。
+    ```
+
+* [42.左旋转字符串](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/42.左旋转字符串.py)
+    ```
+    汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！
+    ```
+
+* [43.翻转单词顺序列](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/41.和为S的两个数字.py)
+    ```
+    牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？
+    ```
