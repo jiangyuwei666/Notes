@@ -198,7 +198,33 @@
     汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！
     ```
 
-* [43.翻转单词顺序列](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/41.和为S的两个数字.py)
+* [43.翻转单词顺序列](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/43.翻转单词顺序列.py)
     ```
     牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？
+    ```
+    
+* [44.扑克牌顺子](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/44.扑克牌顺子.py)
+    ```
+    LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张^_^)...他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！“红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子.....LL不高兴了,他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。上面的5张牌就可以变成“1,2,3,4,5”(大小王分别看作2和4),“So Lucky!”。LL决定去买体育彩票啦。 现在,要求你使用这幅牌模拟上面的过程,然后告诉我们LL的运气如何， 如果牌能组成顺子就输出true，否则就输出false。为了方便起见,你可以认为大小王是0。
+    ```
+* [45.孩子们的游戏(圆圈中最后剩下的数)](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/45.孩子们的游戏(圆圈中最后剩下的数).py)
+    ```
+    ```
+
+* [46.求1+2+3+...+n](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/46.求1+2+3+...+n.py)
+    ```
+    求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。
+    ```
+47.不用加减乘除做加法
+48.把字符串转换成整数
+49.数组中重复的数字
+
+* [50.构建乘积数组](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/50.构建乘积数组.py)
+    ```
+    给定一个数组A[0,1,...,n-1],请构建一个数组B[0,1,...,n-1],其中B中的元素B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1]。不能使用除法。
+    ```
+    
+* [54.链表中环的入口结点](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/54.链表中环的入口结点.py)
+    ```
+    给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。
     ```
