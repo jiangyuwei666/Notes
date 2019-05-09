@@ -228,3 +228,9 @@
     ```
     给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。
     ```
+    ![](https://img-blog.csdn.net/20180524223027442?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXNoYWxs/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+    
+* [55.删除链表中重复的结点](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/55.删除链表中重复的结点.py)
+    ```
+    在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
+    ```
