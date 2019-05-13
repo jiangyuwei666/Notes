@@ -239,3 +239,23 @@
     ```
     给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
     ```
+    
+* [57.对称的二叉树](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/57.对称的二叉树.py)
+    ```
+    请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
+    ```
+* [58.按之字形顺序打印二叉树](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/58.按之字形顺序打印二叉树.py)
+    ```
+    请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
+    ```
+* [59.把二叉树打印成多行](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/59.把二叉树打印成多行.py)
+    ```
+    从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
+    ```
+* [60.序列化二叉树](https://github.com/jiangyuwei666/my-study-demo/blob/master/Algorithm/sword%20of%20offer/60.序列化二叉树.py)
+    ```
+    请实现两个函数，分别用来序列化和反序列化二叉树
+    ```   
+
+
+    
