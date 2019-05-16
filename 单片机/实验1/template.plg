@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+E:\Study\Notes\单片机\实验1\template.uvproj
+Project File Date:  05/16/2019
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=14.0 xdata=0 code=356
+creating hex file from "template"...
+"template" - 0 Error(s), 0 Warning(s).
