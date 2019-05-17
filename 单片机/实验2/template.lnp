@@ -1,3 +1,4 @@
-"main.obj" 
+"main.obj",
+"part2.obj" 
 TO "template" 
 RAMSIZE(256) 

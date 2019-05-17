@@ -9,11 +9,25 @@ Project File Date:  05/16/2019
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling main.c...
+compiling part2.c...
+PART2.C(12): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling part2.c...
 linking...
-Program Size: data=11.0 xdata=0 code=78
-"template" - 0 Error(s), 0 Warning(s).
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  MAIN
+    MODULE:  part2.obj (PART2)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MAIN?PART2
+Program Size: data=11.0 xdata=0 code=109
+Target not created
 Build target 'Target 1'
 linking...
-Program Size: data=11.0 xdata=0 code=78
-creating hex file from "template"...
-"template" - 0 Error(s), 0 Warning(s).
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  MAIN
+    MODULE:  part2.obj (PART2)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MAIN?PART2
+Program Size: data=11.0 xdata=0 code=109
+Target not created

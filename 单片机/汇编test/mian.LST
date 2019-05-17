@@ -1,0 +1,257 @@
+A51 MACRO ASSEMBLER  MIAN                                                                 05/17/2019 09:13:08 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+NO OBJECT MODULE REQUESTED
+ASSEMBLER INVOKED BY: E:\Keil\C51\BIN\A51.EXE mian.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     LJMP     C:0029              
+*** _________________________^
+*** __________________________________^
+*** ____________________________________^
+*** ERROR #A38 IN 1 (mian.asm, LINE 1): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A5 IN 1 (mian.asm, LINE 1): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 1 (mian.asm, LINE 1): SYNTAX ERROR
+0000                   2     JB       k1(0x90.7),C:0015 
+*** _________________________^
+*** ____________________________________^
+*** _____________________________________________^
+*** _______________________________________________^
+*** ERROR #A38 IN 2 (mian.asm, LINE 2): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A9 IN 2 (mian.asm, LINE 2): SYNTAX ERROR
+*** ERROR #A5 IN 2 (mian.asm, LINE 2): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 2 (mian.asm, LINE 2): SYNTAX ERROR
+0000 7F00              3     MOV      R7,#0xE81000    
+*** ______________________________________^
+*** WARNING #A52 IN 3 (mian.asm, LINE 3): VALUE HAS BEEN TRUNCATED TO 8 BITS
+0002 7E00              4     MOV      R6,#0x031000    
+*** ______________________________________^
+*** WARNING #A52 IN 4 (mian.asm, LINE 4): VALUE HAS BEEN TRUNCATED TO 8 BITS
+0004                   5     LCALL    delay(C:0035)
+*** _______________________________________^
+*** ________________________________________^
+*** __________________________________________^
+*** ERROR #A9 IN 5 (mian.asm, LINE 5): SYNTAX ERROR
+*** ERROR #A5 IN 5 (mian.asm, LINE 5): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 5 (mian.asm, LINE 5): SYNTAX ERROR
+0004                   6     JB       k1(0x90.7),C:0012   
+*** _________________________^
+*** ____________________________________^
+*** _____________________________________________^
+*** _______________________________________________^
+*** ERROR #A38 IN 6 (mian.asm, LINE 6): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A9 IN 6 (mian.asm, LINE 6): SYNTAX ERROR
+*** ERROR #A5 IN 6 (mian.asm, LINE 6): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 6 (mian.asm, LINE 6): SYNTAX ERROR
+0004                   7     CPL      led(0xA0.0)ed=~led;         //led×´Ì¬È¡·´
+*** _____________________________________^
+*** _____________________________________________^
+*** ________________________________________________^
+*** ERROR #A9 IN 7 (mian.asm, LINE 7): SYNTAX ERROR
+*** ERROR #A9 IN 7 (mian.asm, LINE 7): SYNTAX ERROR
+*** ERROR #A9 IN 7 (mian.asm, LINE 7): SYNTAX ERROR
+0004                   8     JNB      k1(0x90.7),C:0012   
+*** _________________________^
+*** ____________________________________^
+*** _____________________________________________^
+*** _______________________________________________^
+*** ERROR #A38 IN 8 (mian.asm, LINE 8): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A9 IN 8 (mian.asm, LINE 8): SYNTAX ERROR
+*** ERROR #A5 IN 8 (mian.asm, LINE 8): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 8 (mian.asm, LINE 8): SYNTAX ERROR
+0004                   9     JB       k2(0xB0.0),main(C:0003)
+*** _________________________^
+*** ____________________________________^
+*** _________________________________________________^
+A51 MACRO ASSEMBLER  MIAN                                                                 05/17/2019 09:13:08 PAGE     2
+
+*** __________________________________________________^
+*** ERROR #A38 IN 9 (mian.asm, LINE 9): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A9 IN 9 (mian.asm, LINE 9): SYNTAX ERROR
+*** ERROR #A9 IN 9 (mian.asm, LINE 9): SYNTAX ERROR
+*** ERROR #A5 IN 9 (mian.asm, LINE 9): ILLEGAL USE OF A RESERVED WORD
+0004 7F00             10     MOV      R7,#0xE81000    
+*** ______________________________________^
+*** WARNING #A52 IN 10 (mian.asm, LINE 10): VALUE HAS BEEN TRUNCATED TO 8 BITS
+0006 7E00             11     MOV      R6,#0x031000    
+*** ______________________________________^
+*** WARNING #A52 IN 11 (mian.asm, LINE 11): VALUE HAS BEEN TRUNCATED TO 8 BITS
+0008                  12     LCALL    delay(C:0035);   //Ïû³¶¶¶¯ Ò»°ã´óÔ¼10ms
+*** _______________________________________^
+*** ________________________________________^
+*** __________________________________________^
+*** ERROR #A9 IN 12 (mian.asm, LINE 12): SYNTAX ERROR
+*** ERROR #A5 IN 12 (mian.asm, LINE 12): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 12 (mian.asm, LINE 12): SYNTAX ERROR
+0008                  13     JB       k2(0xB0.0),C:0024   
+*** _________________________^
+*** ____________________________________^
+*** _____________________________________________^
+*** _______________________________________________^
+*** ERROR #A38 IN 13 (mian.asm, LINE 13): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A9 IN 13 (mian.asm, LINE 13): SYNTAX ERROR
+*** ERROR #A5 IN 13 (mian.asm, LINE 13): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 13 (mian.asm, LINE 13): SYNTAX ERROR
+0008                  14     CPL      led(0xA0.0)ed=~led;         //led×´Ì¬È¡·´
+*** _____________________________________^
+*** _____________________________________________^
+*** ________________________________________________^
+*** ERROR #A9 IN 14 (mian.asm, LINE 14): SYNTAX ERROR
+*** ERROR #A9 IN 14 (mian.asm, LINE 14): SYNTAX ERROR
+*** ERROR #A9 IN 14 (mian.asm, LINE 14): SYNTAX ERROR
+0008                  15     JB       k2(0xB0.0),main(C:0003)      
+*** _________________________^
+*** ____________________________________^
+*** _________________________________________________^
+*** __________________________________________________^
+*** ERROR #A38 IN 15 (mian.asm, LINE 15): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A9 IN 15 (mian.asm, LINE 15): SYNTAX ERROR
+*** ERROR #A9 IN 15 (mian.asm, LINE 15): SYNTAX ERROR
+*** ERROR #A5 IN 15 (mian.asm, LINE 15): ILLEGAL USE OF A RESERVED WORD
+0008                  16     SJMP     C:0024
+*** _________________________^
+*** __________________________________^
+*** ____________________________________^
+*** ERROR #A38 IN 16 (mian.asm, LINE 16): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A5 IN 16 (mian.asm, LINE 16): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 16 (mian.asm, LINE 16): SYNTAX ERROR
+                      17              
+0008                  18     MOV      R0,#0x7F0,main(C:0003)      
+*** _________________________^
+*** ________________________________________________^
+*** _________________________________________________^
+*** ERROR #A38 IN 18 (mian.asm, LINE 18): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A9 IN 18 (mian.asm, LINE 18): SYNTAX ERROR
+*** ERROR #A5 IN 18 (mian.asm, LINE 18): ILLEGAL USE OF A RESERVED WORD
+0008 E4               19     CLR      A               
+0009 F6               20     MOV      @R0,A   
+000A                  21     DJNZ     R0,C:002C,main(C:0003)      
+*** _________________________^
+*** _____________________________________^
+*** __________________________________________^
+*** _________________________________________________^
+*** ERROR #A38 IN 21 (mian.asm, LINE 21): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+A51 MACRO ASSEMBLER  MIAN                                                                 05/17/2019 09:13:08 PAGE     3
+
+*** ERROR #A5 IN 21 (mian.asm, LINE 21): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A1 IN 21 (mian.asm, LINE 21): ILLEGAL CHARACTER IN NUMERIC CONSTANT
+*** ERROR #A5 IN 21 (mian.asm, LINE 21): ILLEGAL USE OF A RESERVED WORD
+000A                  22     MOV      SP(0x81),#0x07n(C:0003)      
+*** _________________________^
+*** ____________________________________^
+*** ________________________________________________^
+*** _________________________________________________^
+*** __________________________________________________^
+*** ERROR #A38 IN 22 (mian.asm, LINE 22): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A9 IN 22 (mian.asm, LINE 22): SYNTAX ERROR
+*** ERROR #A1 IN 22 (mian.asm, LINE 22): ILLEGAL CHARACTER IN NUMERIC CONSTANT
+*** ERROR #A9 IN 22 (mian.asm, LINE 22): SYNTAX ERROR
+*** ERROR #A5 IN 22 (mian.asm, LINE 22): ILLEGAL USE OF A RESERVED WORD
+000A                  23     LJMP     main(C:0003)07n(C:0003)      
+*** ______________________________________^
+*** _______________________________________^
+*** _________________________________________^
+*** __________________________________________________^
+*** ERROR #A9 IN 23 (mian.asm, LINE 23): SYNTAX ERROR
+*** ERROR #A5 IN 23 (mian.asm, LINE 23): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 23 (mian.asm, LINE 23): SYNTAX ERROR
+*** ERROR #A5 IN 23 (mian.asm, LINE 23): ILLEGAL USE OF A RESERVED WORD
+000A                  24     MOV      A,R7(C:0003)07n(C:0003)      
+*** ______________________________________^
+*** _______________________________________^
+*** __________________________________________________^
+*** ERROR #A9 IN 24 (mian.asm, LINE 24): SYNTAX ERROR
+*** ERROR #A5 IN 24 (mian.asm, LINE 24): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A5 IN 24 (mian.asm, LINE 24): ILLEGAL USE OF A RESERVED WORD
+000A                  25     DEC      R7R7(C:0003)07n(C:0003)      
+*** ______________________________________^
+*** _______________________________________^
+*** _________________________________________^
+*** __________________________________________________^
+*** ERROR #A9 IN 25 (mian.asm, LINE 25): SYNTAX ERROR
+*** ERROR #A5 IN 25 (mian.asm, LINE 25): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 25 (mian.asm, LINE 25): SYNTAX ERROR
+*** ERROR #A5 IN 25 (mian.asm, LINE 25): ILLEGAL USE OF A RESERVED WORD
+000A                  26     MOV      R4,0x06000307n(C:0003)      
+*** _______________________________________________^
+*** ________________________________________________^
+*** _________________________________________________^
+*** ERROR #A1 IN 26 (mian.asm, LINE 26): ILLEGAL CHARACTER IN NUMERIC CONSTANT
+*** ERROR #A9 IN 26 (mian.asm, LINE 26): SYNTAX ERROR
+*** ERROR #A5 IN 26 (mian.asm, LINE 26): ILLEGAL USE OF A RESERVED WORD
+000A                  27     JNZ      C:003C6000307n(C:0003)      
+*** _________________________^
+*** __________________________________^
+*** _______________________________________^
+*** _______________________________________________^
+*** ________________________________________________^
+*** ERROR #A38 IN 27 (mian.asm, LINE 27): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A5 IN 27 (mian.asm, LINE 27): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A1 IN 27 (mian.asm, LINE 27): ILLEGAL CHARACTER IN NUMERIC CONSTANT
+*** ERROR #A9 IN 27 (mian.asm, LINE 27): SYNTAX ERROR
+*** ERROR #A9 IN 27 (mian.asm, LINE 27): SYNTAX ERROR
+*** MORE ERRORS DETECTED, NOT REPORTED000A                  28     DEC      R6003C6000307n(C:0003)      
+*** ________________________________________________^
+*** _________________________________________________^
+*** ___________________________________________________^
+*** ERROR #A9 IN 28 (mian.asm, LINE 28): SYNTAX ERROR
+*** ERROR #A5 IN 28 (mian.asm, LINE 28): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 28 (mian.asm, LINE 28): SYNTAX ERROR
+000A                  29     ORL      A,R43C6000307n(C:0003)      
+A51 MACRO ASSEMBLER  MIAN                                                                 05/17/2019 09:13:08 PAGE     4
+
+*** ________________________________________________^
+*** _________________________________________________^
+*** ERROR #A9 IN 29 (mian.asm, LINE 29): SYNTAX ERROR
+*** ERROR #A5 IN 29 (mian.asm, LINE 29): ILLEGAL USE OF A RESERVED WORD
+000A                  30     JNZ      delay(C:0035)7n(C:0003)      
+*** _______________________________________^
+*** ________________________________________^
+*** __________________________________________^
+*** __________________________________________________^
+*** ERROR #A9 IN 30 (mian.asm, LINE 30): SYNTAX ERROR
+*** ERROR #A5 IN 30 (mian.asm, LINE 30): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 30 (mian.asm, LINE 30): SYNTAX ERROR
+*** ERROR #A5 IN 30 (mian.asm, LINE 30): ILLEGAL USE OF A RESERVED WORD
+000A                  31     RET      delay(C:0035)7n(C:0003)      
+*** _______________________________________^
+*** ________________________________________^
+*** __________________________________________^
+*** __________________________________________________^
+*** ERROR #A9 IN 31 (mian.asm, LINE 31): SYNTAX ERROR
+*** ERROR #A5 IN 31 (mian.asm, LINE 31): ILLEGAL USE OF A RESERVED WORD
+*** ERROR #A9 IN 31 (mian.asm, LINE 31): SYNTAX ERROR
+*** ERROR #A5 IN 31 (mian.asm, LINE 31): ILLEGAL USE OF A RESERVED WORD
+                      32                      
+                      33                      
+                      34                      
+                      35                      
+                      36                        
+*** WARNING #A41 IN 36 (mian.asm, LINE 36): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  MIAN                                                                 05/17/2019 09:13:08 PAGE     5
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .    ----   -----       
+ED . . . . . . . .    ----   -----       
+K1 . . . . . . . .    ----   -----       
+K2 . . . . . . . .    ----   -----       
+LED. . . . . . . .    ----   -----       
+MAIN . . . . . . .    ----   -----       
+N. . . . . . . . .    ----   -----       
+R43C6000307N . . .    ----   -----       
+R6003C6000307N . .    ----   -----       
+R7R7 . . . . . . .    ----   -----       
+SP . . . . . . . .  D ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  5 WARNING(S), 87 ERROR(S)
