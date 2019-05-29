@@ -136,3 +136,104 @@ ITEM_PIPELINES = {
    'douban.pipelines.MongoPipeline': 300,
 }
 ```
+
+scrapy 配置详解
+```python
+# 1. 爬虫名称，不是spider,name里的名称，而是整个爬虫项目的名称，
+# 很多网站都会有自己的爬虫(百度，谷歌等都有)。
+BOT_NAME = 'scrapy_learn'
+
+# 2. 爬虫应用路径
+SPIDER_MODULES = ['scrapy_learn.spiders']
+NEWSPIDER_MODULE = 'scrapy_learn.spiders'
+
+# 3. 客户端 user-agent请求头，常伪造成浏览器
+USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36'
+
+# 4. 是否遵循爬虫规则，正经的要遵循，但我们搞爬虫都不正经
+ROBOTSTXT_OBEY = False
+
+# 5. 并发请求数，默认16
+CONCURRENT_REQUESTS = 32
+
+# 6. 延迟下载秒数，默认0
+DOWNLOAD_DELAY = 3
+
+# 7. 单域名访问并发数，并且延迟下次秒数也应用在每个域名，比CONCURRENT_REQUESTS更加细致的并发
+CONCURRENT_REQUESTS_PER_DOMAIN = 16
+
+# 单IP访问并发数，如果有值则忽略：CONCURRENT_REQUESTS_PER_DOMAIN，
+# 并且延迟下次秒数也应用在每个IP
+CONCURRENT_REQUESTS_PER_IP = 16
+
+# 8. 是否支持cookie，cookiejar进行操作cookie，默认支持
+COOKIES_ENABLED = True
+# 是否是调试模式，调试模式下每次得到cookie都会打印
+COOKIES_DEBUG = True
+
+# 9. Telnet用于查看当前爬虫的信息(爬了多少，还剩多少等)，操作爬虫(暂停等)等...，
+# cmd中:telnet 127.0.0.1 6023(6023是专门给爬虫用的端口)
+# telnet 命令
+# est() 检查引擎状态
+# engine.pass 暂停引擎， 还有很多命令，在网上可搜
+TELNETCONSOLE_ENABLED = True
+
+# 10. 默认请求头
+#DEFAULT_REQUEST_HEADERS = {
+#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+#   'Accept-Language': 'en',
+#}
+
+# 中间件，需要详细讲，另写
+# Enable or disable spider middlewares
+# See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+#SPIDER_MIDDLEWARES = {
+#    'scrapy_learn.middlewares.ScrapyLearnSpiderMiddleware': 543,
+#}
+# Enable or disable downloader middlewares
+# See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+#DOWNLOADER_MIDDLEWARES = {
+#    'scrapy_learn.middlewares.ScrapyLearnDownloaderMiddleware': 543,
+#}
+
+# 11. 定义pipeline处理请求
+# See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+ITEM_PIPELINES = {
+   'scrapy_learn.pipelines.ScrapyLearnPipeline': 300,
+}
+
+# 12. 自定义扩展，基于信号进行调用
+# See https://doc.scrapy.org/en/latest/topics/extensions.html
+EXTENSIONS = {
+   # 'scrapy.extensions.telnet.TelnetConsole': None,
+}
+
+# 自动限速算法(智能请求)
+# See https://doc.scrapy.org/en/latest/topics/autothrottle.html
+AUTOTHROTTLE_ENABLED = True
+# 第一次下载延迟几秒
+AUTOTHROTTLE_START_DELAY = 5
+# 最大延迟
+AUTOTHROTTLE_MAX_DELAY = 60
+# 波动范围，不用管
+#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
+# Enable showing throttling stats for every response received:
+#AUTOTHROTTLE_DEBUG = False
+
+# 做缓存的，以后说
+# See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
+#HTTPCACHE_ENABLED = True
+#HTTPCACHE_EXPIRATION_SECS = 0
+#HTTPCACHE_DIR = 'httpcache'
+#HTTPCACHE_IGNORE_HTTP_CODES = []
+#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# 13. 爬虫允许的最大深度，可以通过meta查看当前深度；0表示无深度
+DEPTH_LIMIT = 4
+
+# DEPTH_PRIORITY只能设置为0或1，
+# 0深度优先，一下找到底，然后再找其他的
+# 1广度优先，一层一层找
+# 他们内部的原理就是根据response.meta里的depth(层数)来找。
+# DEPTH_PRIORITY = 0
+```
