@@ -137,7 +137,8 @@ ITEM_PIPELINES = {
 }
 ```
 
-scrapy 配置详解
+
+## scrapy 配置详解
 ```python
 # 1. 爬虫名称，不是spider,name里的名称，而是整个爬虫项目的名称，
 # 很多网站都会有自己的爬虫(百度，谷歌等都有)。
@@ -237,3 +238,11 @@ DEPTH_LIMIT = 4
 # 他们内部的原理就是根据response.meta里的depth(层数)来找。
 # DEPTH_PRIORITY = 0
 ```
+
+## scrapy的一些坑
+* 不管并发量设置多少(CONCURRENT_REQUESTS = 32)速度都很慢。
+
+    我在读取文件构造url并yeild请求的时候，在编写回调的parse函数时，我在写完解析逻辑并返回相应的item之后，每次只yield了一个请求出去，所以导致每次都只有一个请求在处理，达不到并发的效果。。。
+
+    还有可能遇到的问题就是：*Item太多导致溢出？* 当某一个请求会返回很多个Item的时候，（并不是多个请求返回多个Item）这个时候会导致爬虫的效率变慢。
+* 
